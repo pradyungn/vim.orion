@@ -1,0 +1,348 @@
+"  ____  _   _ 
+" |  _ \| \ | | Pradyun Narkadamilli
+" | |_) |  \| | https://pradyungn.tech
+" |  __/| |\  | MIT License
+" |_|   |_| \_| Copyright 2020 Pradyun Narkadamilli
+
+" Plugin Settings
+" Configuration for all the plugin stuffs
+
+
+" Vim polyglot
+let g:polyglot_disabled = ['latex']
+
+" Git Gutter  
+let g:gitgutter_enabled = 1
+let g:gitgutter_grep=''
+
+" VimTex  
+let g:latex_view_general_viewer = "zathura"
+let g:vimtex_view_method = "zathura"
+let g:tex_flavor = "latex"
+let g:vimtex_quickfix_open_on_warning = 0
+let g:vimtex_quickfix_mode = 2
+let g:vimtex_compiler_method = "latexmk"
+let g:vimtex_compiler_progname = 'nvr'
+let g:vimtex_compiler_latexmk = {
+    \ 'background' : 1,
+    \ 'build_dir' : '',
+    \ 'callback' : 1,
+    \ 'continuous' : 1,
+    \ 'executable' : 'latexmk',
+    \ 'options' : [
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
+
+" Goyo    
+nmap <F6> :Goyo<CR>
+
+
+" Vista  
+let g:vista_executive_for = {
+      \ 'c': 'coc',
+      \ }
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+let g:vista#renderer#enable_icon = 1
+let g:vista_sidebar_width = 50
+
+"NerdTree  
+
+" if nerdtree is only window, kill nerdtree so buffer can die
+let NERDTreeQuitOnOpen = 1
+let g:NERDTreeWinPos = "right"
+let NERDTreeShowHidden=1
+let g:NERDTreeWinSize=35
+
+" Airline 
+
+"main settings
+let g:airline_theme='dracula'
+let g:airline_symbols = {}
+let g:airline_skip_empty_sections = 1
+let g:airline_symbols_branch = ''
+let g:airline_symbols.crypt = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = 'Ɇ'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_symbols.modified = ' '
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+
+"extensions
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#coc#enabled = 1
+let g:airline#extensions#unicode#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#vista#enabled = 1
+let g:airline#extensions#hunks#enabled = 1
+
+"extension settings
+let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
+let g:airline#extensions#hunks#hunk_symbols = [':', ':', ':']
+let g:airline#extensions#branch#format = 2
+
+"Devicons 
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_unite = 1
+let g:webdevicons_enable_denite = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_enable_vimfiler = 1
+let g:WebDevIconsUnicodeDecorateFileNodes = 1
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+let g:webdevicons_enable_airline_statusline = 1
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+
+"Indent Guides 
+let g:indentLine_char = '▏'
+
+let g:indent_guides_auto_colors = 1
+let g:indentLine_fileTypeExclude = [
+      \'defx',
+      \'markdown',
+      \'denite',
+      \'startify',
+      \'tagbar',
+      \'vista_kind',
+      \'vista'
+      \]
+
+"Autopairs 
+let g:AutoPairsFlyMode = 0
+let g:AutoPairsMultilineClose = 0
+
+"Startify 
+
+" Another vanity header
+" use this if you want something that screams 'I'm better than you fucker'
+" let s:header= [
+    " \"    ___ ___      _ ___ ___       ",
+    " \"   |  _|_  |    (_)  _|_  |      ",
+    " \"   | |   | |_ __ _| |   | |_ __  ",
+    " \"   | |   | | '__| | |   | | '_ \\ ",
+    " \"   | |   | | |  | | |   | | | | |",
+    " \"   | |_ _| |_|  |_| |_ _| |_| |_|",
+    " \"   |___|___|      |___|___|      ",
+    " \"",
+    " \"   ------------------------------",
+    " \"      Real Programmers Use NeoVim   ",
+    " \"   ------------------------------"]
+
+" Centers start screen vertically
+function! s:vercent(head)
+  let delt = ((&lines - len(a:head) - 30) / 2) - 1
+  if delt<0
+    return a:head
+  endif
+  let i = 0
+  let head = a:head
+  while i < delt 
+    let head = [''] + head
+    let i = i + 1
+  endwhile
+  return head
+endfunction
+
+" Centers file entries horizontally. Hardcode offset, so long paths (over 50
+" len) will break
+function! s:horcent()
+  " let hist = v:oldfiles[:9]
+  " echo hist
+  " let i=  0
+  " let m= 0
+  " while i<10
+    " let leng = len(hist[i]) - len('/home/pradyungn') + 8
+    " if leng>m
+      " m = leng
+    " endif
+    " let i = i + 1
+  " endwhile
+  let leng = 50 " delete this line if you figure out dynamic alignment"
+  let delt = ((&columns - 50) / 2) - 1
+  if delt<0
+    return 0
+  endif
+  return delt
+endfunction
+
+let s:pad = <SID>horcent()
+
+" Centers section header entries
+function! s:bcent(str)
+  let delt = ((&columns - len(a:str)) / 2) - 1
+  if delt<0
+    return a:str
+  endif
+  let i = 0
+  let str = a:str
+  while i < delt 
+    let str = " " . str
+    let i = i + 1
+  endwhile
+  return str
+endfunction
+
+" opts
+let g:startify_fortune_use_unicode = 1
+let g:startify_enable_special = 0
+let g:startify_padding_left = s:pad
+
+
+" formatted header/footer
+let s:footer= ['-------------------------------','  Real Programmers use Neovim  ','-------------------------------']
+let g:exten = ["vim.orion - an endgame neovim config"]
+let s:header = startify#center(startify#fortune#cowsay())
+let g:startify_custom_header = <SID>vercent(s:header)
+let g:startify_custom_footer = startify#center(s:footer) + startify#center(g:exten)
+
+" intro sections 
+let g:startify_lists = [
+          \ { 'type': 'bookmarks', 'header': [<SID>bcent("bkmrk")]      },
+          \ { 'type': 'files',     'header': [<SID>bcent("recent")]            },
+          \ { 'type': 'sessions',   'header': [<SID>bcent("sessions")]            },
+          \ ]
+
+" These are my bookmarks, use different ones on ur machine (unless you run my
+" exact config?)
+let g:startify_bookmarks = [
+            \ {'r':'~/Documents/3304P'},
+            \ {'bsp': '~/.config/bspwm' },
+            \ {'sx': '~/.config/sxhkd' },
+            \ {'n': '~/.config/nvim' },
+            \ {'q': '~/.config/qutebrowser' }
+            \ ]
+
+" Put some cool commands here
+" let g:startify_commands = [
+        " \ ['Vim Reference', 'h ref'],
+        " \ ]
+
+" " colorgoup (Really shitty rn, change it to your liking)
+" highlight StartifyBracket guifg=#bfbfbf
+" highlight StartifyFooter  guifg=#50fa7b
+" highlight StartifyHeader  guifg=#50fa7b
+" highlight StartifyNumber  guifg=#ff79c6
+" highlight StartifyPath    guifg=#f1fa8c
+" highlight StartifySlash   guifg=#4d4d4d
+" highlight StartifySection guifg=#bd93f9
+
+"COC  
+
+" Define Error Symbols and colors
+let g:coc_status_warning_sign = ''
+let g:coc_status_error_sign = ''
+hi CocWarningSign ctermfg=blue 
+hi CocErrorSign ctermfg=red
+hi CocInfoSign ctermfg=yellow
+hi CocHintSign ctermfg=green
+
+" KEY REMAPS 
+set updatetime=300
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
+let g:coc_snippet_next = '<TAB>'
+let g:coc_snippet_prev = '<S-TAB>'
+
+" Extensions. Some need configuration. 
+" coc-java needs a valid JVM filepath defined in coc-settings
+" coc-ccls needs ccls (available on aur)
+" coc-eslint needs eslint npm package installed globally
+let g:coc_global_extensions = [
+      \'coc-html', 
+      \'coc-java', 
+      \'coc-ccls', 
+      \'coc-tabnine',
+      \'coc-vimlsp', 
+      \'coc-go', 
+      \'coc-css', 
+      \'coc-sh', 
+      \'coc-snippets',
+      \'coc-eslint',
+      \'coc-emmet',
+      \'coc-tsserver',
+      \'coc-json',
+      \'coc-python',
+      \'coc-highlight',
+      \'coc-git',
+      \'coc-utils',
+      \'coc-rust-analyzer',
+      \'coc-pairs'
+      \]
+
+augroup MyAutoCmd
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+
+"Nerd Commenter 
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Allow commenting and inverting empty lines (useful when commenting a region)
+"
+
+" Fuzzy Finding 
+let g:fzf_colors =
+\ { 'fg':      ['bg', 'Normal'],
+\ 'bg':      ['bg', 'Normal'],
+\ 'hl':      ['fg', 'Comment'],
+\ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+\ 'bg+':     ['fg', 'CursorLine', 'CursorColumn'],
+\ 'hl+':     ['fg', 'Statement'],
+\ 'info':    ['fg', 'PreProc'],
+\ 'border':  ['fg', 'Ignore'],
+\ 'prompt':  ['fg', 'Conditional'],
+\ 'pointer': ['fg', 'Exception'],
+\ 'marker':  ['fg', 'Keyword'],
+\ 'spinner': ['fg', 'Label'],
+\ 'header':  ['fg', 'Comment'] }
+
+" Hide status bar while using fzf commands                                                                          
+if has('nvim') || has('gui_running')                                                                                
+  autocmd! FileType fzf                                                                                             
+  autocmd  FileType fzf set laststatus=0 | autocmd WinLeave <buffer> set laststatus=2                               
+endif    
+
+" Centered floating window for fzf
+let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
+
+" Markdown Preview 
+
+" Contains CSS for markdown + page + higlight
+let g:mkdp_markdown_css = '/home/pradyungn/.config/nvim/static/markdown-preview/customStyle.css' 
+" Trick plugin into hosting colors.css so we get nice themes
+let g:mkdp_highlight_css = '/home/pradyungn/.config/nvim/static/highlight.css'
+let g:mkdp_port = '3456'
+
+"     Emmet      
+let g:user_emmet_leader_key = '<C-e>'
+let g:user_emmet_expandabbr_key = '<C-x><C-e>'
+imap <silent><expr> <Tab> <SID>expand()
+
+function! s:expand()
+  if pumvisible()
+    return "\<C-y>"
+  endif
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1]  =~# '\s'
+    return "\<Tab>"
+  endif
+  return "\<C-x>\<C-e>"
+endfunction
