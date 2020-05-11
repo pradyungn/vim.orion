@@ -1,9 +1,3 @@
-//  ____  _   _ 
-// |  _ \| \ | | Pradyun Narkadamilli
-// | |_) |  \| | https://pradyungn.tech
-// |  __/| |\  | MIT License
-// |_|   |_| \_| Copyright 2020 Pradyun Narkadamilli
-
 {
   "coc.preferences.colorSupport": true,
   "diagnostic.refreshOnInsertMode": true,
@@ -34,9 +28,7 @@
     "function": "\uf794",
     "method": "\uf6a6",
     "variable": "\uf71b",
-    "constant": "\uf8ff",
-    "struct": "\ufb44",
-    "class": "\uf0e8",
+    "constant": "\uf8ff", "struct": "\ufb44", "class": "\uf0e8",
     "interface": "\ufa52",
     "text": "\ue612",
     "enum": "\uf435",
