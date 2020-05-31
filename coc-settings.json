@@ -80,5 +80,6 @@
      }
     }
   },
-  "java.errors.incompleteClasspath.severity": "ignore"
+  "java.errors.incompleteClasspath.severity": "ignore",
+  "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact"}
 }

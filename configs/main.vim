@@ -1,13 +1,8 @@
-"***********************************************************************************
-"   __  ___         _               ____       __   __    _                   
-"  /  |/  / ___ _  (_)  ___        / __/ ___  / /_ / /_  (_)  ___   ___ _  ___
-" / /|_/ / / _ `/ / /  / _ \      _\ \  / -_)/ __// __/ / /  / _ \ / _ `/ (_-<
-"/_/  /_/  \_,_/ /_/  /_//_/     /___/  \__/ \__/ \__/ /_/  /_//_/ \_, / /___/
-"                                                                 /___/
-"
-"***********************************************************************************
-
-
+"  ____  _   _ 
+" |  _ \| \ | | Pradyun Narkadamilli
+" | |_) |  \| | https://pradyungn.tech
+" |  __/| |\  | MIT License
+" |_|   |_| \_| Copyright 2020 Pradyun Narkadamilli
 
 " Set ZSHRC
 set runtimepath+=~/.vim_runtime
@@ -56,9 +51,9 @@ set cmdheight=1
 
 " Tab Settings
 set expandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set smarttab
 set autoindent
 set smartindent
@@ -132,9 +127,6 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
-" Automatic CD to File Directory
-autocmd BufEnter * lcd %:p:h
-
 " Subscript digraphs for maths
 "alphsubs ---------------------- {{{
         execute "digraphs ks " . 0x2096
@@ -158,16 +150,15 @@ autocmd BufEnter * lcd %:p:h
 
 
 
-""""""""""""""""""""
-"  Dracula Colors  "
-""""""""""""""""""""
+"  Dracula Colors 
 colorscheme dracula
 set termguicolors
 
+" Sound Nyet
+set noerrorbells
 
-let g:vimwiki_list = [{
-  \ 'path': '$HOME/vimwiki',
-  \ 'template_path': '$HOME/vimwiki/templates',
-  \ 'template_default': 'index',
-  \ 'template_ext': '.html'}]
+" No Wrapping
+set nowrap
 
+" Auto CD
+autocmd BufEnter * silent! lcd %:p:h

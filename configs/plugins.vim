@@ -37,7 +37,6 @@ Plug 'terryma/vim-multiple-cursors'
 
 "" Indent guides
 Plug 'Yggdroot/indentLine'
-
 " COC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -47,7 +46,11 @@ Plug 'mhinz/vim-startify'
 " Vim Javascript
 Plug 'pangloss/vim-javascript'
 
-" Language Packs
+" CSS Strings
+Plug 'styled-components/vim-styled-components', {'branch': 'main'}
+
+
+" Vim Polyglot (Programming Lanugage Pack - Fuckin OP)
 Plug 'sheerun/vim-polyglot'
 
 " Status bar
@@ -64,7 +67,6 @@ Plug 'liuchengxu/vista.vim'
 
 " NERDTree
 Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " goyo distraction free mode
@@ -79,21 +81,24 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 " Dracula Colorscheme
 Plug 'dracula/vim', { 'as': 'dracula' }
 
-" VimWiki
-Plug 'vimwiki/vimwiki'
-
 "Clang Format
 Plug 'sbdchd/neoformat'
 
 " Arduino plugins
-Plug 'sudar/vim-arduino-syntax'
 Plug 'sudar/vim-arduino-snippets'
 
 " Vim TMUX Integration
 Plug 'christoomey/vim-tmux-navigator'
 
-" Emmet Integration
+" Emmet
 Plug 'mattn/emmet-vim'
+
+" FZF
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Vim-Be-Good
+Plug 'ThePrimeagen/vim-be-good'
 
 " CtrlP
 Plug 'kien/ctrlp.vim'

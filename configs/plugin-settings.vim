@@ -44,13 +44,18 @@ nmap <F6> :Goyo<CR>
 " Vista  
 let g:vista_executive_for = {
       \ 'c': 'coc',
+      \ 'cpp': 'coc',
+      \ 'py': 'coc',
+      \ 'dart': 'coc',
+      \ 'rs': 'coc',
+      \ 'js': 'coc',
       \ }
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista#renderer#enable_icon = 1
 let g:vista_sidebar_width = 50
+let g:vista_close_on_jump = 1
 
 "NerdTree  
-
 " if nerdtree is only window, kill nerdtree so buffer can die
 let NERDTreeQuitOnOpen = 1
 let g:NERDTreeWinPos = "right"
@@ -58,7 +63,6 @@ let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=35
 
 " Airline 
-
 "main settings
 let g:airline_theme='dracula'
 let g:airline_symbols = {}
@@ -155,17 +159,6 @@ endfunction
 " Centers file entries horizontally. Hardcode offset, so long paths (over 50
 " len) will break
 function! s:horcent()
-  " let hist = v:oldfiles[:9]
-  " echo hist
-  " let i=  0
-  " let m= 0
-  " while i<10
-    " let leng = len(hist[i]) - len('/home/pradyungn') + 8
-    " if leng>m
-      " m = leng
-    " endif
-    " let i = i + 1
-  " endwhile
   let leng = 50 " delete this line if you figure out dynamic alignment"
   let delt = ((&columns - 50) / 2) - 1
   if delt<0
@@ -257,6 +250,7 @@ let g:coc_snippet_prev = '<S-TAB>'
 " coc-eslint needs eslint npm package installed globally
 let g:coc_global_extensions = [
       \'coc-html', 
+      \'coc-flutter', 
       \'coc-java', 
       \'coc-ccls', 
       \'coc-tabnine',
@@ -274,8 +268,10 @@ let g:coc_global_extensions = [
       \'coc-git',
       \'coc-utils',
       \'coc-rust-analyzer',
-      \'coc-pairs'
+      \'coc-pairs',
+      \'coc-prettier'
       \]
+      " \'coc-deno'
 
 augroup MyAutoCmd
   autocmd!
@@ -295,54 +291,22 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 let g:NERDSpaceDelims = 1
 " Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
-" Allow commenting and inverting empty lines (useful when commenting a region)
-"
-
-" Fuzzy Finding 
-let g:fzf_colors =
-\ { 'fg':      ['bg', 'Normal'],
-\ 'bg':      ['bg', 'Normal'],
-\ 'hl':      ['fg', 'Comment'],
-\ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-\ 'bg+':     ['fg', 'CursorLine', 'CursorColumn'],
-\ 'hl+':     ['fg', 'Statement'],
-\ 'info':    ['fg', 'PreProc'],
-\ 'border':  ['fg', 'Ignore'],
-\ 'prompt':  ['fg', 'Conditional'],
-\ 'pointer': ['fg', 'Exception'],
-\ 'marker':  ['fg', 'Keyword'],
-\ 'spinner': ['fg', 'Label'],
-\ 'header':  ['fg', 'Comment'] }
-
-" Hide status bar while using fzf commands                                                                          
-if has('nvim') || has('gui_running')                                                                                
-  autocmd! FileType fzf                                                                                             
-  autocmd  FileType fzf set laststatus=0 | autocmd WinLeave <buffer> set laststatus=2                               
-endif    
-
-" Centered floating window for fzf
-let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
 
 " Markdown Preview 
-
 " Contains CSS for markdown + page + higlight
 let g:mkdp_markdown_css = '/home/pradyungn/.config/nvim/static/markdown-preview/customStyle.css' 
 " Trick plugin into hosting colors.css so we get nice themes
 let g:mkdp_highlight_css = '/home/pradyungn/.config/nvim/static/highlight.css'
 let g:mkdp_port = '3456'
 
-"     Emmet      
-let g:user_emmet_leader_key = '<C-e>'
-let g:user_emmet_expandabbr_key = '<C-x><C-e>'
-imap <silent><expr> <Tab> <SID>expand()
+" Let ripgrep find the index directory
+if executable('rg')
+    let g:rg_derive_root='true'
+endif
 
-function! s:expand()
-  if pumvisible()
-    return "\<C-y>"
-  endif
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1]  =~# '\s'
-    return "\<Tab>"
-  endif
-  return "\<C-x>\<C-e>"
-endfunction
+" Ctrlp Settings
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_use_caching = 0
+
+" Keybind fixin
+let NERDCreateDefaultMappings = 0
