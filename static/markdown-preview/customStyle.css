@@ -1,5 +1,5 @@
 /*
-____  _   _ 
+ ____  _   _
 |  _ \| \ | | Pradyun Narkadamilli
 | |_) |  \| | https://pradyungn.tech
 |  __/| |\  | MIT License
@@ -8,7 +8,8 @@ ____  _   _
 
 /* Markdown Viewer CSS */
 
-body { background-color: var(--background); }
+body { background-color: var(--background);
+font-family: Roboto;}
 
 .markdown-body ol ol,
 .markdown-body ul ol,
@@ -22,7 +23,6 @@ body { background-color: var(--background); }
   margin-bottom: 0;
 }
 .markdown-body {
-  font-family: Roboto;
   font-size: 16px;
   color: var(--foreground);
   line-height: 1.6;
@@ -83,12 +83,17 @@ body { background-color: var(--background); }
 .markdown-body ul,
 .markdown-body ol,
 .markdown-body dl,
-.markdown-body table,
-.markdown-body pre {
-  margin-top: 0;
-  margin-bottom: 16px;
-  background-color: var(--background) !important; /* Changes background of code block */
+.markdown-body table
+ {
+    background-color: var(--background) !important; /* Changes background of code block */
 }
+
+.markdown-body pre {
+    margin: 20px;
+    padding: 10px;
+    background-color: #44475a !important;
+}
+
 .markdown-body h1 {
   margin: 0.67em 0;
   padding-bottom: 0.3em;
@@ -304,106 +309,65 @@ body { background-color: var(--background); }
   font-size: 14px;
   font-weight: 600;
   color: var(--foreground) !important;
-
-
 }
-
-
-
-
-/* Highlight settings */
 
 .hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  color: #333;
-  background: var(--background);
-}
-
-.hljs-comment,
-.hljs-quote {
-  color: var(--color8) !important; /* color of comments */
-  font-style: italic;
+  background: #44475a;
 }
 
 .hljs-keyword,
 .hljs-selector-tag,
-.hljs-subst {
-  color: var(--color4);
-  font-weight: bold;
+.hljs-literal,
+.hljs-section,
+.hljs-link {
+  color: #8be9fd;
 }
 
-.hljs-number,
-.hljs-literal,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag .hljs-attr {
-  color: var(--color5) !important;
+.hljs-function .hljs-keyword {
+  color: #ff79c6;
+}
+
+.hljs,
+.hljs-subst {
+  color: #f8f8f2;
 }
 
 .hljs-string,
-.hljs-doctag {
-  color: var(--color1);
+.hljs-title,
+.hljs-name,
+.hljs-type,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #f1fa8c;
 }
 
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion,
+.hljs-meta {
+  color: #6272a4;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
 .hljs-title,
 .hljs-section,
-.hljs-selector-id {
-  color: var(--color3) !important; /* Color of function title */ 
-  font-weight: bold;
-}
-
-.hljs-subst {
-  font-weight: normal;
-}
-
+.hljs-doctag,
 .hljs-type,
-.hljs-class .hljs-title {
-  color: var(--color2) !important; /* Color of class title */ 
-  font-weight: bold;
-}
-
-.hljs-tag,
 .hljs-name,
-.hljs-attribute {
-  color: #000080;
-  font-weight: normal;
-}
-
-.hljs-regexp,
-.hljs-link {
-  color: #009926;
-}
-
-.hljs-symbol,
-.hljs-bullet {
-  color: #990073;
-}
-
-.hljs-built_in,
-.hljs-builtin-name {
-  color: #0086b3;
-}
-
-.hljs-meta {
-  color: #999;
+.hljs-strong {
   font-weight: bold;
-}
-
-.hljs-deletion {
-  background: #fdd;
-}
-
-.hljs-addition {
-  background: #dfd;
 }
 
 .hljs-emphasis {
   font-style: italic;
 }
-
-.hljs-strong {
-  font-weight: bold;
-}
-

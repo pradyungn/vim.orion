@@ -5,6 +5,7 @@
 " |_|   |_| \_| Copyright 2020 Pradyun Narkadamilli
 
 " Set ZSHRC
+
 set runtimepath+=~/.vim_runtime
 set shell=zsh\ -i
 
@@ -72,19 +73,10 @@ set showmatch
 "set backup
 
 " Save undo tree.
-"set undofile
-
-" Do not back up temporary files.
-set backupskip=/tmp/*,/private/tmp/*"
-
-" Store backup files in one place.
-set backupdir^=$HOME/.config/nvim//storage/backups//
-
-" Store swap files in one place.
-set dir^=$HOME/.config/nvim//storage/swaps//
+set undofile
 
 " Store undo files in one place.
-set undodir^=$HOME/.config/nvim/storage/undos//
+set undodir=~/.vim/undodir
 
 " line wrapping
 set wrap
@@ -105,7 +97,7 @@ set clipboard=unnamedplus
 
 " Show next 3 lines while scrolling.
 if !&scrolloff
-    set scrolloff=3
+    set scrolloff=8
 endif
 
 " Show next 5 columns while side-scrolling.
@@ -151,6 +143,7 @@ augroup END
 
 
 "  Dracula Colors 
+set background=dark
 colorscheme dracula
 set termguicolors
 
@@ -162,3 +155,17 @@ set nowrap
 
 " Auto CD
 autocmd BufEnter * silent! lcd %:p:h
+
+" No highlight
+set nohlsearch
+
+set noshowmatch
+set incsearch
+
+set updatetime=50
+
+set shortmess+=c
+
+highlight ColorColumn ctermbg=0 guibg=#44475a
+
+set laststatus=2

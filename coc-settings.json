@@ -23,6 +23,7 @@
   "git.topRemovedSign.hlGroup": "GitGutterDelete",
   "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
   "python.autoComplete.extraPaths": ["/usr/lib/python3.8/site-packages", "/home/pradyungn/.local/lib/python3.8/site-packages"],
+  "python.jediEnabled": false,
 
   "suggest.completionItemKindLabels": {
     "function": "\uf794",
@@ -50,7 +51,7 @@
     "default": "\uf29c"
   },
 
- "java.home": "/usr/lib/jvm/java-13-openjdk/",
+ "java.home": "/usr/lib/jvm/java-14-openjdk/",
  "eslint.trace.server": "verbose",
  "languageserver": {
    "ccls": {

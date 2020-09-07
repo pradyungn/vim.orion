@@ -1,4 +1,4 @@
-"  ____  _   _ 
+"  ____  _   _
 " |  _ \| \ | | Pradyun Narkadamilli
 " | |_) |  \| | https://pradyungn.tech
 " |  __/| |\  | MIT License
@@ -102,5 +102,11 @@ Plug 'ThePrimeagen/vim-be-good'
 
 " CtrlP
 Plug 'kien/ctrlp.vim'
+
+" Undo Tree (Edit history)
+Plug 'mbbill/undotree'
+
+" VimWiki
+Plug 'vimwiki/vimwiki'
 
 call plug#end()

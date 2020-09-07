@@ -29,6 +29,7 @@ nnoremap <silent> <Tab> :bnext<CR>
 nnoremap <silent> <S-Tab> :bprevious<CR>
 " Kill buffer with Space+bk
 nnoremap<silent> <Space>d :bdelete<CR> 
+nnoremap<silent> <Space>D :bw!<CR>
 
 " Indent controls
 " Tab to indent in visual mode.
@@ -163,8 +164,20 @@ nnoremap <silent> <Leader>w :w!<CR>
 " Editor Keybinds
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>on :NERDTree<CR>
-nnoremap <silent> <Leader><Leader> :nohlsearch<CR>
 nnoremap <silent> <Leader>S :/<C-R><C-W> *<CR>
 
 " Ripgrep go brrrrrr
 nnoremap <silent> <Leader>rg :Rg<CR>
+
+" Terminal mode escape-to-exit bind and launch
+tnoremap <silent> <c-f> <c-\><c-n>
+nnoremap <silent> <Leader>t :terminal<CR>
+
+" FZF files ig (LMAO ITS SPACEX)
+nnoremap <silent> <Leader>x :Files<CR>
+
+" UndoTree
+nnoremap <silent> <Leader>u :UndotreeShow<CR>:UndotreeFocus<CR>
+
+" VimWiki Compilation - leader key set in settings
+nnoremap <silent> <Leader>jc :VimwikiAll2HTML<CR>

@@ -1,4 +1,4 @@
-"  ____  _   _ 
+"  ____  _   _
 " |  _ \| \ | | Pradyun Narkadamilli
 " | |_) |  \| | https://pradyungn.tech
 " |  __/| |\  | MIT License
@@ -11,11 +11,11 @@
 " Vim polyglot
 let g:polyglot_disabled = ['latex']
 
-" Git Gutter  
+" Git Gutter
 let g:gitgutter_enabled = 1
 let g:gitgutter_grep=''
 
-" VimTex  
+" VimTex
 let g:latex_view_general_viewer = "zathura"
 let g:vimtex_view_method = "zathura"
 let g:tex_flavor = "latex"
@@ -37,11 +37,11 @@ let g:vimtex_compiler_latexmk = {
     \ ],
     \}
 
-" Goyo    
+" Goyo
 nmap <F6> :Goyo<CR>
 
 
-" Vista  
+" Vista
 let g:vista_executive_for = {
       \ 'c': 'coc',
       \ 'cpp': 'coc',
@@ -55,32 +55,20 @@ let g:vista#renderer#enable_icon = 1
 let g:vista_sidebar_width = 50
 let g:vista_close_on_jump = 1
 
-"NerdTree  
+"NerdTree
 " if nerdtree is only window, kill nerdtree so buffer can die
 let NERDTreeQuitOnOpen = 1
 let g:NERDTreeWinPos = "right"
 let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=35
 
-" Airline 
+" Airline
 "main settings
 let g:airline_theme='dracula'
 let g:airline_symbols = {}
 let g:airline_skip_empty_sections = 1
-let g:airline_symbols_branch = ''
-let g:airline_symbols.crypt = ''
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = 'Ɇ'
-let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_symbols.modified = ' '
-let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
 "extensions
-let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#coc#enabled = 1
 let g:airline#extensions#unicode#enabled = 1
 let g:airline#extensions#branch#enabled = 1
@@ -88,17 +76,14 @@ let g:airline#extensions#vista#enabled = 1
 let g:airline#extensions#hunks#enabled = 1
 
 "extension settings
-let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
-let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
 let g:airline#extensions#hunks#hunk_symbols = [':', ':', ':']
 let g:airline#extensions#branch#format = 2
+let airline#extensions#coc#error_symbol = 'E:'
+let airline#extensions#coc#warning_symbol = 'W:'
 
-"Devicons 
+"Devicons
 let g:webdevicons_enable = 1
-let g:webdevicons_enable_unite = 1
-let g:webdevicons_enable_denite = 1
 let g:webdevicons_enable_nerdtree = 1
-let g:webdevicons_enable_vimfiler = 1
 let g:WebDevIconsUnicodeDecorateFileNodes = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
@@ -106,7 +91,7 @@ let g:webdevicons_enable_airline_statusline = 1
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
 
-"Indent Guides 
+"Indent Guides
 let g:indentLine_char = '▏'
 
 let g:indent_guides_auto_colors = 1
@@ -120,11 +105,11 @@ let g:indentLine_fileTypeExclude = [
       \'vista'
       \]
 
-"Autopairs 
+"Autopairs
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsMultilineClose = 0
 
-"Startify 
+"Startify
 
 " Another vanity header
 " use this if you want something that screams 'I'm better than you fucker'
@@ -149,7 +134,7 @@ function! s:vercent(head)
   endif
   let i = 0
   let head = a:head
-  while i < delt 
+  while i < delt
     let head = [''] + head
     let i = i + 1
   endwhile
@@ -177,7 +162,7 @@ function! s:bcent(str)
   endif
   let i = 0
   let str = a:str
-  while i < delt 
+  while i < delt
     let str = " " . str
     let i = i + 1
   endwhile
@@ -197,7 +182,7 @@ let s:header = startify#center(startify#fortune#cowsay())
 let g:startify_custom_header = <SID>vercent(s:header)
 let g:startify_custom_footer = startify#center(s:footer) + startify#center(g:exten)
 
-" intro sections 
+" intro sections
 let g:startify_lists = [
           \ { 'type': 'bookmarks', 'header': [<SID>bcent("bkmrk")]      },
           \ { 'type': 'files',     'header': [<SID>bcent("recent")]            },
@@ -228,48 +213,42 @@ let g:startify_bookmarks = [
 " highlight StartifySlash   guifg=#4d4d4d
 " highlight StartifySection guifg=#bd93f9
 
-"COC  
+"COC
 
 " Define Error Symbols and colors
-let g:coc_status_warning_sign = ''
-let g:coc_status_error_sign = ''
-hi CocWarningSign ctermfg=blue 
-hi CocErrorSign ctermfg=red
-hi CocInfoSign ctermfg=yellow
-hi CocHintSign ctermfg=green
+" Define Error Symbols and colors
+hi CocWarningSign guifg=#ffb86c
+hi CocErrorSign guifg=#ff5555
 
-" KEY REMAPS 
-set updatetime=300
-let g:ycm_server_python_interpreter = '/usr/bin/python3'
 let g:coc_snippet_next = '<TAB>'
 let g:coc_snippet_prev = '<S-TAB>'
 
-" Extensions. Some need configuration. 
+" Extensions. Some need configuration.
 " coc-java needs a valid JVM filepath defined in coc-settings
 " coc-ccls needs ccls (available on aur)
 " coc-eslint needs eslint npm package installed globally
 let g:coc_global_extensions = [
-      \'coc-html', 
-      \'coc-flutter', 
-      \'coc-java', 
-      \'coc-ccls', 
+      \'coc-html',
+      \'coc-flutter',
+      \'coc-java',
+      \'coc-ccls',
       \'coc-tabnine',
-      \'coc-vimlsp', 
-      \'coc-go', 
-      \'coc-css', 
-      \'coc-sh', 
+      \'coc-vimlsp',
+      \'coc-go',
+      \'coc-css',
+      \'coc-sh',
       \'coc-snippets',
       \'coc-eslint',
       \'coc-emmet',
       \'coc-tsserver',
       \'coc-json',
-      \'coc-python',
       \'coc-highlight',
       \'coc-git',
       \'coc-utils',
       \'coc-rust-analyzer',
       \'coc-pairs',
-      \'coc-prettier'
+      \'coc-prettier',
+      \'coc-python',
       \]
       " \'coc-deno'
 
@@ -285,16 +264,16 @@ augroup end
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
-"Nerd Commenter 
+"Nerd Commenter
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 " Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
 
-" Markdown Preview 
+" Markdown Preview
 " Contains CSS for markdown + page + higlight
-let g:mkdp_markdown_css = '/home/pradyungn/.config/nvim/static/markdown-preview/customStyle.css' 
+let g:mkdp_markdown_css = '/home/pradyungn/.config/nvim/static/markdown-preview/customStyle.css'
 " Trick plugin into hosting colors.css so we get nice themes
 let g:mkdp_highlight_css = '/home/pradyungn/.config/nvim/static/highlight.css'
 let g:mkdp_port = '3456'
@@ -302,6 +281,7 @@ let g:mkdp_port = '3456'
 " Let ripgrep find the index directory
 if executable('rg')
     let g:rg_derive_root='true'
+    let g:ctrlp_user_command = 'rg --files'
 endif
 
 " Ctrlp Settings
@@ -310,3 +290,10 @@ let g:ctrlp_use_caching = 0
 
 " Keybind fixin
 let NERDCreateDefaultMappings = 0
+let g:vimwiki_map_prefix = '<Leader>j'
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+    \ 'template_path': '~/vimwiki_templates/',
+    \ 'template_default': 'default',
+    \ 'template_ext': '.html',
+    \ 'nested_syntaxes':{'python': 'python', 'c++': 'cpp', 'html':'html', 'css':'css', 'rust':'rust', 'js': 'javascript', 'json':'json', 'sql':'sql', 'c':'c', 'go':'go', 'yaml':'yaml', 'md':'markdown', 'ts':'typescript'}}]
+let g:vimwiki_global_ext = 0
