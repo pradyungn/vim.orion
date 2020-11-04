@@ -71,7 +71,6 @@ set showmatch
 
 " Keep a backup file.
 set backup
-set backupdir=~/.vim/backupdir
 
 " Save undo tree.
 set undofile
@@ -141,7 +140,7 @@ set norelativenumber
 
 "  Dracula Colors 
 set background=dark
-colorscheme mountaineer
+colorscheme dracula
 set termguicolors
 
 " Sound Nyet

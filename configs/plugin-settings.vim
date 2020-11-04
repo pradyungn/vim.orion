@@ -128,7 +128,7 @@ let g:AutoPairsMultilineClose = 0
 
 " Centers start screen vertically
 function! s:vercent(head)
-  let delt = ((&lines - len(a:head) - 30) / 2) - 1
+  let delt = ((&lines - len(a:head) - 15) / 2) - 1
   if delt<0
     return a:head
   endif
@@ -144,8 +144,8 @@ endfunction
 " Centers file entries horizontally. Hardcode offset, so long paths (over 50
 " len) will break
 function! s:horcent()
-  let leng = 50 " delete this line if you figure out dynamic alignment"
-  let delt = ((&columns - 50) / 2) - 1
+  let leng = 25 " delete this line if you figure out dynamic alignment"
+  let delt = ((&columns - leng) / 2) - 1
   if delt<0
     return 0
   endif
@@ -185,8 +185,6 @@ let g:startify_custom_footer = startify#center(s:footer) + startify#center(g:ext
 " intro sections
 let g:startify_lists = [
           \ { 'type': 'bookmarks', 'header': [<SID>bcent("bkmrk")]      },
-          \ { 'type': 'files',     'header': [<SID>bcent("recent")]            },
-          \ { 'type': 'sessions',   'header': [<SID>bcent("sessions")]            },
           \ ]
 
 " These are my bookmarks, use different ones on ur machine (unless you run my
@@ -249,6 +247,7 @@ let g:coc_global_extensions = [
       \'coc-pairs',
       \'coc-prettier',
       \'coc-python',
+      \'coc-vimtex',
       \]
       " \'coc-deno'
 
@@ -297,3 +296,6 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
     \ 'template_ext': '.html',
     \ 'nested_syntaxes':{'python': 'python', 'c++': 'cpp', 'html':'html', 'css':'css', 'rust':'rust', 'js': 'javascript', 'json':'json', 'sql':'sql', 'c':'c', 'go':'go', 'yaml':'yaml', 'md':'markdown', 'ts':'typescript'}}]
 let g:vimwiki_global_ext = 0
+
+" LaTeX Live Reload
+let g:livepreview_previewer = "zathura"

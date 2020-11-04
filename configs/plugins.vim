@@ -51,10 +51,12 @@ Plug 'styled-components/vim-styled-components', {'branch': 'main'}
 
 
 " Vim Polyglot (Programming Lanugage Pack - Fuckin OP)
+let g:polyglot_disabled = ['latex']
+
 Plug 'sheerun/vim-polyglot'
 
 " Status bar
- Plug 'vim-airline/vim-airline'
+ " Plug 'vim-airline/vim-airline'
 
 " Tabular auto-align
 Plug 'godlygeek/tabular'
@@ -108,5 +110,8 @@ Plug 'mbbill/undotree'
 
 " VimWiki
 Plug 'vimwiki/vimwiki'
+
+" VimTeX reload
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
 call plug#end()
