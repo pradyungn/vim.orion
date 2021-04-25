@@ -141,7 +141,7 @@ set norelativenumber
 
 "  Dracula Colors 
 set background=dark
-colorscheme mountaineer
+colorscheme mountain
 set termguicolors
 
 " Sound Nyet

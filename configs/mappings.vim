@@ -41,9 +41,6 @@ vnoremap <S-Tab> <gv
 nnoremap <silent> <Leader>Al :left<CR>
 nnoremap <silent> <Leader>Ac :center<CR>
 nnoremap <silent> <Leader>Ar :right<CR>
-vnoremap <silent> <Leader>Al :left<CR>
-vnoremap <silent> <Leader>Ac :center<CR>
-vnoremap <silent> <Leader>Ar :right<CR>
 
 " Plugin specific keybinds
  

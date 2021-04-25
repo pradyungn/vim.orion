@@ -50,7 +50,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'styled-components/vim-styled-components', {'branch': 'main'}
 
 
-" Vim Polyglot (Programming Lanugage Pack - Fuckin OP)
+" Vim Polyglot (Programming Lanugage Pack - very OP)
 let g:polyglot_disabled = ['latex']
 
 Plug 'sheerun/vim-polyglot'
@@ -79,9 +79,6 @@ Plug 'lervag/vimtex'
 
 " Markdown Preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-
-" Dracula Colorscheme
-Plug 'dracula/vim', { 'as': 'dracula' }
 
 "Clang Format
 Plug 'sbdchd/neoformat'
@@ -113,5 +110,11 @@ Plug 'vimwiki/vimwiki'
 
 " VimTeX reload
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+
+" Mountain theme :)
+Plug 'pradyungn/Mountain', { 'rtp': 'vim' }
+
+" Alignment plugin
+Plug 'junegunn/vim-easy-align'
 
 call plug#end()

@@ -7,4 +7,4 @@ source $HOME/.config/nvim/configs/plugin-settings.vim
 " This script contains mappings
 source $HOME/.config/nvim/configs/mappings.vim
 " Status line
-source $HOME/.config/nvim/configs/statusline.vim
+" source $HOME/.config/nvim/configs/statusline.vim
